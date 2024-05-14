@@ -9,4 +9,6 @@ public class Static  {
     public static string accecc_token { get; set; }
     public static int TankIndex { get; set; } = 0;
 
+    public static string Name { get; set; }
+
 }

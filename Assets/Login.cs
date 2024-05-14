@@ -52,6 +52,7 @@ public class Login : MonoBehaviour {
         } else {
             var result = JsonConvert.DeserializeObject<LoginResult>(www.text);
             Static.accecc_token = result.access_token;
+            Static.Name = result.user.fullname;
             loginScreen.SetActive(false);
             mainScreen.SetActive(true);
         }
@@ -69,9 +70,7 @@ public class Login : MonoBehaviour {
         if (www.error != null) {
             Debug.LogError(www.error);
         } else {
-            Debug.Log("Login Ok");
-            loginScreen.SetActive(false);
-            mainScreen.SetActive(true);
+            Debug.LogError("Register Ok");
         }
     }
 
