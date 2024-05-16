@@ -8,7 +8,7 @@ public class TankMenu : MonoBehaviour {
 
     [SerializeField]
     private  GameObject[] tanks;
-  
+
     public void onNext() {
         tanks[Static.TankIndex].SetActive(false);
         Static.TankIndex++;
