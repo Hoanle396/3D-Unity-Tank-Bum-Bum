@@ -64,7 +64,7 @@ public class Login : MonoBehaviour {
 
     IEnumerator doRegister() {
         formRegister = new WWWForm();
-        formRegister.AddField("username", account);
+        formRegister.AddField("email", account);
         formRegister.AddField("password", password);
         formRegister.AddField("fullname", fullName);
         WWW www = new WWW("http://localhost:4000/auth/register", formRegister);
@@ -73,9 +73,8 @@ public class Login : MonoBehaviour {
         if (www.error != null) {
             Debug.LogError(www.error);
         } else {
-            Debug.Log("Login Ok");
-            loginScreen.SetActive(false);
-            mainScreen.SetActive(true);
+            Debug.Log("register Ok");
+            yield return StartCoroutine(doLogin(account, password));
         }
     }
 
