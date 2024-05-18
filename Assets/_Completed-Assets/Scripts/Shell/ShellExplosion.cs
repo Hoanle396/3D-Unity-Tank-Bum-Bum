@@ -4,7 +4,8 @@ namespace Complete
 {
     public class ShellExplosion : MonoBehaviour
     {
-        public LayerMask m_TankMask;                       
+        public LayerMask m_TankMask;
+        public int PlayerID;
         public ParticleSystem m_ExplosionParticles;        
         public AudioSource m_ExplosionAudio;             
         public float m_MaxDamage = 50f;                 
@@ -22,7 +23,7 @@ namespace Complete
         private void OnTriggerEnter (Collider other)
         {
             Collider[] colliders = Physics.OverlapSphere (transform.position, m_ExplosionRadius, m_TankMask);
-
+            
             for (int i = 0; i < colliders.Length; i++)
             {
                 Rigidbody targetRigidbody = colliders[i].GetComponent<Rigidbody> ();
@@ -42,6 +43,14 @@ namespace Complete
                 targetHealth.TakeDamage (damage);
             }
 
+            if (other.gameObject.CompareTag("gift")) {
+                if (PlayerID == 1) {
+                    Static.Player1Dame += 20;
+                } else if (PlayerID == 2) {
+                    Static.Player2Dame += 20;
+                }
+            }
+
             m_ExplosionParticles.transform.parent = null;
 
             m_ExplosionParticles.Play();
@@ -53,7 +62,6 @@ namespace Complete
 
             Destroy (gameObject);
         }
-
 
         private float CalculateDamage (Vector3 targetPosition)
         {

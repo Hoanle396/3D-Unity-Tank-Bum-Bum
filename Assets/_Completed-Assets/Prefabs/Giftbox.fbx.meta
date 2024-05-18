@@ -1,11 +1,16 @@
 fileFormatVersion: 2
-guid: 9da6b664b1c296e4baa19736b7544d51
+guid: 28aedc02aaaac3d4aaedd64449a8a7fd
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: giftbox
+    second: {fileID: 2100000, guid: 86080a783905b5740ad2b81f63a2c650, type: 2}
   materials:
-    materialImportMode: 2
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1

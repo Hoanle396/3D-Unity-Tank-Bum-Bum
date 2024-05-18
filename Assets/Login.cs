@@ -20,6 +20,10 @@ public class Login : MonoBehaviour {
     WWWForm formLogin, formRegister;
     void Start() {
         Debug.developerConsoleVisible = true;
+        if (Static.accecc_token != null) {
+            loginScreen.SetActive(false);
+            mainScreen.SetActive(true);
+        }
     }
     public void onLogin() {
         StartCoroutine(doLogin(account, password));

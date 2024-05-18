@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Photon.Pun.Demo.Asteroids;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Complete
@@ -75,8 +76,8 @@ namespace Complete
             Rigidbody shellInstance =
                 Instantiate (m_Shell, m_FireTransform.position, m_FireTransform.rotation) as Rigidbody;
 
-            shellInstance.velocity = m_CurrentLaunchForce * m_FireTransform.forward; 
-
+            shellInstance.GetComponent<ShellExplosion>().PlayerID = m_PlayerNumber;
+            shellInstance.velocity = m_CurrentLaunchForce * m_FireTransform.forward;
             m_ShootingAudio.clip = m_FireClip;
             m_ShootingAudio.Play ();
 
