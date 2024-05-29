@@ -84,7 +84,6 @@ namespace Complete {
         private IEnumerator RoundStarting() {
             ResetAllTanks();
            
-            Static.TankIndex++;
             DisableTankControl();
 
             m_CameraControl.SetStartPositionAndSize();

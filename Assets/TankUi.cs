@@ -9,7 +9,13 @@ public class TankUi : MonoBehaviour
 
     void Start()
     {
-        tanks[Static.TankIndex].SetActive(true);
+        for (int i = 0; i < tanks.Length; i++) {
+            if (i == Static.TankIndex) {
+                tanks[i].SetActive(true);
+            } else {
+                tanks[i].SetActive(false);
+            }
+        }
     }
 
 }

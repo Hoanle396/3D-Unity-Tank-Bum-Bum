@@ -8,7 +8,13 @@ public class Tank2UI : MonoBehaviour
     private GameObject[] tanks;
 
     void Start() {
-        tanks[Static.Tank2Index].SetActive(true);
+        for(int i =0; i<tanks.Length;i++) {
+            if (i == Static.Tank2Index) {
+                tanks[i].SetActive(true);
+            } else {
+                tanks[i].SetActive(false);
+            }
+        }
     }
 
 }
