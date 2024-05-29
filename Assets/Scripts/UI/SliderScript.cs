@@ -17,9 +17,9 @@ public class SliderScript : MonoBehaviour
         });
     }
 
-   
-    void Update()
-    {
-        
+
+    void Awake() {
+        DontDestroyOnLoad(this.gameObject);
+        DontDestroyOnLoad(audio);
     }
 }
